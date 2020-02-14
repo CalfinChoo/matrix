@@ -18,7 +18,6 @@ def print_matrix( matrix ):
             line += str(matrix[r][c]) + " "
         print(line)
 
-
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
 def ident( matrix ):
@@ -31,23 +30,27 @@ def ident( matrix ):
         for n in range(i + 1, 4): temp.append(0.00)
         m.append(temp)
         temp = []
-    print_matrix(m)
     return m
-
 
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    # 4 x n
     newMatrix = []
-
+    rowCount = 0
+    colCount = 0
     for c in range(len(m2)):
-        sum = 0
-        for r in range(4):
-            sum += m2[c][r] * m1[]
-
-
-
+        temp = []
+        for row in range(len(m1[0])):
+            sum = 0
+            for r in range(len(m2[0])):
+                sum += m2[c][r] * m1[colCount][rowCount]
+                colCount += 1
+            temp.append(sum)
+            colCount = 0
+            rowCount += 1
+        newMatrix.append(temp)
+        rowCount = 0
+    return newMatrix
 
 
 def new_matrix(rows = 4, cols = 4):
@@ -57,3 +60,14 @@ def new_matrix(rows = 4, cols = 4):
         for r in range( rows ):
             m[c].append( 0 )
     return m
+
+
+# n = new_matrix()
+# count = 0
+# for i in range(len(n)):
+#     for x in range(len(n[i])):
+#         n[i][x] = count
+#         count += 1
+# print_matrix(n)
+# print("\n")
+# print_matrix(matrix_mult(ident(2),n))
