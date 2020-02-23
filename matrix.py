@@ -15,7 +15,7 @@ def print_matrix( matrix ):
     for c in range(4):
         line = ""
         for r in range(len(matrix)):
-            line += str(matrix[r][c]) + " "
+            line += str(matrix[r][c]) + ".00 "
         print(line)
 
 #turn the paramter matrix into an identity matrix
@@ -25,9 +25,9 @@ def ident( matrix ):
     temp = []
     for i in range(4):
         while(len(temp) != i):
-            temp.append(0.00)
+            temp.append(0)
         temp.append(matrix)
-        for n in range(i + 1, 4): temp.append(0.00)
+        for n in range(i + 1, 4): temp.append(0)
         m.append(temp)
         temp = []
     return m
